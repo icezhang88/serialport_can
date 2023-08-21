@@ -80,7 +80,9 @@ static void rx_task(void *arg)
             message_open.data[6] = data[7];
             message_open.data[7] = data[8];
             for (int i = 0; i < data[9]; ++i) {
+                ESP_LOGI(RX_TASK_TAG,"data is '%x' ",can_device[data[0]]);
                 twai_transmit(&message_open, pdMS_TO_TICKS(10));
+                vTaskDelay(pdMS_TO_TICKS(100));
             }
 
 
