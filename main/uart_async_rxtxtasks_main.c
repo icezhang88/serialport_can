@@ -68,7 +68,7 @@ static void rx_task(void *arg)
 
             twai_message_t message_open;
             ESP_LOGI(RX_TASK_TAG,"data is '%x' ",can_device[data[0]]);
-            message_open.identifier = data[0];
+            message_open.identifier = can_device[data[0]];
             message_open.flags = 0;
             message_open.data_length_code = 8;
             message_open.data[0] = data[1];
